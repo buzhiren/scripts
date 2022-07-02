@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hide{
+            display: none;
+        }
+
+        .c1{
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: black;
+            opacity: 0.6;
+            z-index: 9;
+        }
+
+        .c2{
+            width: 500px;
+            height: 400px;
+            background-color: white;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -250px;
+            margin-top: -200px;
+            z-index: 10;
+        }
+
+        .login-item{
+            width:150px;float:left;clear:both;
+        }
+
+
+
+    </style>
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script src="../js/asset.js"></script>
+</head>
+<body style="margin: 0;">
+
+
+    <p> <input type="button" value="增加资产"  onclick="showmodel()"/></p>
+    <div id="i1" class="c1 hide"></div>
+    <div id="i2" class="c2 hide">
+        <p>资产编号：<input type="text"  required="required" placeholder="123LjHD" id="assnumber" > </p>
+        <p>类型：   <input type="text"  required="required" placeholder="电脑/手机..." id="type"> </p>
+        <p>品牌: <input type="text" required="required" placeholder="mac/联想...." id="model"> </p>
+        <p>价格: <input type="text" required="required" placeholder="1000元...." id="price"> </p>
+        <p>拥有者：<input type="text" required="required" placeholder="老王...." id="owner"> </p>
+        <p>购买时间: <input type="text" required="required" placeholder="2017-01-02" id="pur_time"> </p>
+        <p>使用时间: <input type="text" required="required" placeholder="2017-03-02" id="begin_time"> </p>
+        <p>过期时间：<input type="text" required="required" placeholder="2018-09-02" id="exp_time"> </p>
+        <p>状态：<input type="text" required="required" placeholder="使用中/赔偿中/销毁中..." id="state"> </p>
+        <p>
+            <input type="button" value="取消" onclick="hidemodel()" >
+            <input type="submit" value="确定" onclick="submitmodel()" >
+        </p>
+    </div>
+
+
+    <p> <input type="button" value="查询资产" onclick="querymodel()"/></p>
+
+
+    <p> <input type="button" value="修改资产" onclick="modify()" /></p>
+    <div id="x1" class="c1 hide"></div>
+    <div id="x2" class="c2 hide">
+    <p>修改资产编号: <input type="text"  required="required" placeholder="456345" id="asnum"> </p>
+    <p>修改项目: <input type="text"  required="required" placeholder="资产类型/资产编号" id="project"> </p>
+    <p>需要后的内容：<input type="text"  required="required" placeholder="电脑/手机..." id="content" > </p>
+    <p>
+        <input type="button" value="取消" onclick="modifymodel()" >
+        <input type="submit" value="确定" onclick="change()" >
+    </p>
+
+    </div>
+
+
+
+
+    <p> <input type="button" value="删除资产" onclick="delect()" /></p>
+    <div id="s1" class="c1 hide"></div>
+    <div id="s2" class="c2 hide">
+    <p>删除资产编号: <input type="text"  required="required" placeholder="456345" id="numt"> </p>
+    <p>
+        <input type="button" value="取消" onclick="delectmodel()" >
+        <input type="submit" value="确定" onclick="delectaction()" >
+    </p>
+
+    </div>
+
+
+
+
+
+
+</body>
+</html>
