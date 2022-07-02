@@ -1,0 +1,9 @@
+FROM registry-vpc.cn-beijing.aliyuncs.com/lixiaoqiang-library/ubuntu-jdk11:v1.0 
+USER jeb
+WORKDIR /data/spring_boot/webapps
+ARG deploy_env
+ARG code_name
+ENV DEPLOY_ENV ${deploy_env}
+ENV CODE_NAME ${code_name}
+COPY ${code_name} ${code_name}
+CMD ["/bin/bash", "-c", "java -jar ${CODE_NAME}"]

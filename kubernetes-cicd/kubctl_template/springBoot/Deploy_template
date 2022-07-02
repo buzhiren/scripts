@@ -1,0 +1,68 @@
+apiVersion: apps/v1   #版本号
+kind: Deployment      #资源类型
+metadata:             # 原数据key
+  namespace: ${NAME_SPACE}    # 所属空间
+  name: ${DEPLOY_NAME}  # 类型名称
+  labels:   # 标签
+    app: ${DEPLOY_NAME}
+    commitHash: ${COMMIT_HASH}
+spec:    # 容器具体规格部分
+  selector:  # 标签选择器
+    matchLabels:
+      app: ${DEPLOY_NAME}  # 选择app = test-helloworld 的pod资源
+  replicas: 2   # 开启一个pod
+  progressDeadlineSeconds: 600  # 要等待多长时间确定pod状态
+  strategy:  ## 更新策略
+    rollingUpdate:  ##滚动更新
+      maxSurge: 50%  # 更新中最大的多余pod数百分比
+      maxUnavailable: 25%  #更新中最大的不可用pod数百分比
+  template:  # pod各种设置的部分
+    metadata:  # pod原数据
+      labels:  # pod标签
+        app: ${DEPLOY_NAME}
+        commitHash: ${COMMIT_HASH}
+    spec:
+      restartPolicy: Always ##当容器失效时，由kubelet自动重启该容器
+      imagePullSecrets: # 容器镜像仓库的密钥
+        - name: test-lixiaoqiang-library
+      terminationGracePeriodSeconds: 60  ## 关闭程序前的最后缓冲时间
+      containers:  ## 设置的具体设置
+        - name: ${DEPLOY_NAME}
+          resources:  # 资源消耗设置
+            requests: # 最小资源
+              cpu: "250m"
+              memory: "512Mi"
+            limits:  # 最大资源
+              cpu: "2"
+              memory: "2Gi"
+          image: ${IMAGE_ADDRESS} # 镜像
+          imagePullPolicy: Always  ## 总是强制拉取
+          livenessProbe:   ## 健康检测，要用来确定何时重启容器
+            failureThreshold: 3  ##探测失败的重试次数
+            httpGet:  ## 检查的地址路径
+              path: /
+              port: 8080
+            initialDelaySeconds: 30  ##Pod 启动后首次进行检查的等待时间
+            periodSeconds: 5   ## 检查的间隔时间
+            successThreshold: 1  ##探针检测失败后认为成功的最小连接成功次数
+            timeoutSeconds: 3  ## 检查发出后，等待超时时间
+          readinessProbe:  ##主要来确定容器是否已经就绪
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 3
+          ports:  ###pod控制器中定义的、pod中的容器需要暴露的端口，对内
+            - containerPort: 8080
+          env:
+            - name: aliyun_logs_${DEPLOY_NAME}_ttl
+              value: '120'
+            - name: aliyun_logs_${DEPLOY_NAME}
+              value: stdout
+          lifecycle:
+            preStop:  # 容器结束前的操作
+              exec:
+                command: ["/bin/bash", "-c", "sleep 30"]

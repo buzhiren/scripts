@@ -1,0 +1,2 @@
+code_name|git_uri|git_home|code_file|namespace|domain
+helloworld|ssh://git@xxxx.com:22051/lixiaoqiang/helloworld.git|pass|demo-0.0.1-SNAPSHOT.jar|ops-test|http://helloworld.com
