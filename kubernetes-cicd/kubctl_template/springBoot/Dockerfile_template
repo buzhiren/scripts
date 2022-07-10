@@ -1,5 +1,5 @@
-FROM registry-vpc.cn-beijing.aliyuncs.com/lixiaoqiang-library/ubuntu-jdk11:v1.0 
-USER jeb
+FROM registry-vpc.cn-beijing.aliyuncs.com/library/ubuntu-jdk11:v1.0 
+USER ops
 WORKDIR /data/spring_boot/webapps
 ARG deploy_env
 ARG code_name
