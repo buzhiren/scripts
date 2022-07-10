@@ -15,13 +15,13 @@ def logInfo(log_data):
 
 
 def dingDing(md5,file_name):
-    url = "https://oapi.dingtalk.com/robot/send?access_token=ed2d5ef34f1c58d63ef5c4103e77d4e6a5c8eeb3df4534391ac472a0c9edb77e"
+    url = "https://xxxxxxxx"
     headers = {'Content-Type': 'application/json'}
 
     data = {
         "at": {
             "atMobiles":[
-                "15201109320","18611631775","13809890030"
+                "xxxxxxxx","xxxxxxxx","xxxxxxxxx"
             ],
         "isAtAll": False
         },
