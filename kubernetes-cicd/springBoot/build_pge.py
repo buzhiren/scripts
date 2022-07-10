@@ -25,7 +25,7 @@ class SpringBootBuild:
         self.git_branch = arg_data['branch']
         self.env_tag = arg_data['env_tag']
         self.time_tag = time.strftime('%Y%m%d%H%M%S', time.localtime())
-        self.image_addr = "registry-vpc.cn-shenzhen.aliyuncs.com/lixiaoqiang-library"
+        self.image_addr = "registry-vpc.cn-shenzhen.aliyuncs.com/library"
 
         for line in open("%s/../code_data/spring_boot_info.txt" %BASE_PATH):
             if re.match(self.project_name, line):
@@ -170,7 +170,7 @@ class SpringBootBuild:
         return True
 
     def ding_ding(self, action=None):
-        #url = "https://oapi.dingtalk.com/robot/send?access_token=ed2d5ef34f1c58d63ef5c4103e77d4e6a5c8eeb3df4534391ac472a0c9edb77e"
+        #url = "https://xxxxxxxxxxxxxxx"
         url = "https://xxxxx"
         headers = {'Content-Type': 'application/json'}
 
