@@ -93,6 +93,6 @@ if __name__ == '__main__':
     tomcat = Tomcat(service)
     tomcat.offline()
     tomcat.stop(30)
-    tomcat.update('/tmp/data/davdian-apidoc-provider.war')
+    tomcat.update('/tmp/data/xxxx.war')
     tomcat.start(30)
     tomcat.online()
