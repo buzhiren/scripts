@@ -113,20 +113,5 @@ class Mysqltools(object):
 
 
 
-#new.InsertData("cmdb_tmp_goods", {"g_number":"bdfhea12","g_type":"笔记本电脑","g_brand":"mac","g_price":"1000元","g_owner":"李晓强","pur_time":"2017-03-06","begin_time":"2017-03-21","end_time":"2019-01-01","g_state":"使用中"})
 
-
-#new = Mysqltools("192.168.193.10","dvd_cmdb","123456","3306","dvd_cmdb")
-#new.InsertData("cmdb_tmp_goods", {"g_number":"bdfhea12","g_type":"笔记本电脑","g_brand":"mac","g_price":"1000元","g_owner":"李晓强","pur_time":"2017-03-06","begin_time":"2017-03-21","end_time":"2019-01-01","g_state":"使用中"})
-
-#data = new.InsertData("dvd_role",{"id":33,"username":"laowu","password":"666666"})
-#data = new.UpdateData("dvd_role",{"type":"role","content":"ordinary","newcon":"admin"})
-#data = new.SelectData("dvd_role",{"type":"username","content":"lixiaoqiang"})
-# data = new.SelectColumn("dvd_user",{"type":"username"})
-
-#print data
-
-
-
-#self.res = str(self.data).decode(encoding='unicode_escape')
 
