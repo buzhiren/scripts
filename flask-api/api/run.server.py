@@ -65,4 +65,4 @@ app.register_blueprint(group_asset)
 
 
 if __name__ == '__main__':
-  app.run(host='192.168.11.10',port=8000,debug=True)
+  app.run(host='xxxxxxx',port=8000,debug=True)
