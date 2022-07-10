@@ -14,10 +14,10 @@ class findldap(object):
         self.name = data["username"]
         self.pwd = data["password"]
         self.ldap_config = {
-            'path' : "ldap://ldap-server.ops.vyohui.com:389",
-            'base_dn' : "dc=davdian,dc=com",
-            'user' : "cn=root,dc=davdian,dc=com",
-            'passwd' : "dvd@1ppt"
+            'path' : "ldap://xxxxxxx:389",
+            'base_dn' : "dc=xxxx,dc=com",
+            'user' : "cn=root,dc=xxxxx,dc=com",
+            'passwd' : "xxxxxx"
         }
 
     def findname(self):
@@ -41,7 +41,3 @@ class findldap(object):
             ldapPasswd = self.passwd['userPassword'][0]
             return True
 
-
-# b = {"username":"lixiaoqiang", "password":"7x4yr9m2"}
-# a = findldap(b)
-# print a.findname()
